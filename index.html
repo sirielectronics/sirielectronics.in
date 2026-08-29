@@ -1,119 +1,1616 @@
-// ==========================================
-// SIRI ELECTRONICS - WEBSITE JAVASCRIPT
-// ==========================================
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Siri Electronics — professional PCB design, PCB layout, routing, BOM, Gerber and DFM services.">
+
+    <title>Siri Electronics | PCB Design & Layout</title>
+
+    <link rel="icon" href="siri-logo.svg" type="image/svg+xml">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #050a0f;
+            color: #edf7ff;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 10, 15, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #1b2d39;
+        }
+
+        .nav {
+            width: 92%;
+            max-width: 1200px;
+            height: 75px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .brand img {
+            width: 45px;
+            height: 45px;
+        }
+
+        .brand small {
+            display: block;
+            color: #91a5b3;
+            font-size: 8px;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #a9bac5;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #24d8ff;
+        }
+
+        .navbtn {
+            border: 1px solid #315263;
+            padding: 9px 14px;
+            border-radius: 8px;
+        }
+
+        #menu {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .hero {
+            padding-top: 150px;
+            min-height: 750px;
+            background-image:
+                linear-gradient(#24d8ff0b 1px, transparent 1px),
+                linear-gradient(90deg, #24d8ff0b 1px, transparent 1px);
+            background-size: 58px 58px;
+        }
+
+        .hero-grid,
+        .about,
+        .contact {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .eyebrow,
+        .heading small {
+            color: #24d8ff;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.05;
+            margin: 15px 0;
+        }
+
+        h1 em {
+            color: #24d8ff;
+            font-style: normal;
+        }
+
+        .lead {
+            max-width: 650px;
+            color: #91a5b3;
+            font-size: 18px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin: 30px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 20px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background: linear-gradient(110deg, #1684ff, #24d8ff);
+            color: #031017;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .btn.ghost {
+            background: #0a1219;
+            color: #edf7ff;
+            border-color: #2b404c;
+        }
+
+        .stats {
+            display: flex;
+            gap: 35px;
+        }
+
+        .stats b {
+            display: block;
+            color: #24d8ff;
+            font-size: 25px;
+        }
+
+        .stats span {
+            color: #91a5b3;
+            font-size: 10px;
+        }
+
+        /* PCB Graphic */
+
+        .hero-board {
+            height: 450px;
+            display: grid;
+            place-items: center;
+            position: relative;
+        }
+
+        .pcb {
+            width: 300px;
+            height: 370px;
+            border-radius: 20px;
+            transform: rotate(-8deg);
+            background: #0c332f;
+            border: 2px solid #28766b;
+            box-shadow: 0 0 70px #24d8ff18;
+            display: grid;
+            place-items: center;
+            position: relative;
+        }
+
+        .pcb b {
+            font-size: 70px;
+            color: #24d8ff;
+            border: 2px solid #24d8ff;
+            padding: 5px 18px;
+            border-radius: 12px;
+        }
+
+        .pcb span {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: #7bb1a7;
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        .pcb i {
+            position: absolute;
+            width: 150px;
+            height: 3px;
+            background: #4be3c7;
+        }
+
+        .pcb i:nth-child(2) {
+            left: 0;
+            top: 115px;
+            transform: rotate(15deg);
+        }
+
+        .pcb i:nth-child(3) {
+            right: 0;
+            top: 175px;
+            transform: rotate(-20deg);
+        }
+
+        .pcb i:nth-child(4) {
+            left: 30px;
+            bottom: 110px;
+            transform: rotate(-12deg);
+        }
+
+        .hero-board label {
+            position: absolute;
+            padding: 10px;
+            border: 1px solid #294451;
+            border-radius: 8px;
+            background: #09141c;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .hero-board label:nth-of-type(1) {
+            top: 60px;
+            right: 0;
+            color: #8dffe5;
+        }
+
+        .hero-board label:nth-of-type(2) {
+            bottom: 60px;
+            left: 0;
+            color: #9bddff;
+        }
+
+        /* Trust */
+
+        .trust {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            border-block: 1px solid #1b2d39;
+            background: #080e13;
+            color: #91a5b3;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Headings */
+
+        .heading {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto 45px;
+        }
+
+        .heading h2 {
+            font-size: clamp(35px, 5vw, 50px);
+            margin: 10px 0;
+            line-height: 1.1;
+        }
+
+        .heading p {
+            color: #91a5b3;
+            max-width: 700px;
+        }
+
+        /* Services */
+
+        .cards {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .cards > div {
+            padding: 25px;
+            border: 1px solid #1b2d39;
+            background: #0a1219;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .cards > div:hover {
+            transform: translateY(-5px);
+            border-color: #315a6b;
+        }
+
+        .cards b {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #0a2632;
+            color: #24d8ff;
+        }
+
+        .cards h3 {
+            margin: 15px 0 5px;
+        }
+
+        .cards p {
+            color: #91a5b3;
+            font-size: 12px;
+        }
+
+        /* Portfolio */
+
+        .dark {
+            background: #080e14;
+            border-block: 1px solid #ffffff08;
+        }
+
+        .projects {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .project {
+            overflow: hidden;
+            border: 1px solid #1b2d39;
+            border-radius: 13px;
+            background: #0b141c;
+        }
+
+        .project-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-image span {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            padding: 5px 8px;
+            border-radius: 5px;
+            background: #050a0edb;
+            color: #24d8ff;
+            font-size: 9px;
+            font-weight: 800;
+        }
+
+        .project-body {
+            padding: 20px;
+        }
+
+        .project-body small {
+            color: #24d8ff;
+            font-size: 9px;
+            font-weight: 800;
+        }
+
+        .project-body p {
+            color: #91a5b3;
+            font-size: 12px;
+        }
+
+        /* About */
+
+        .skills {
+            padding: 25px;
+            border: 1px solid #1b2d39;
+            border-radius: 13px;
+            background: #0b141b;
+        }
+
+        .skills div {
+            margin: 20px 0;
+        }
+
+        .skills span {
+            font-size: 12px;
+        }
+
+        .skills b {
+            float: right;
+            color: #24d8ff;
+            font-size: 11px;
+        }
+
+        .skills i {
+            display: block;
+            height: 5px;
+            margin-top: 8px;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #1684ff, #24d8ff);
+        }
+
+        .text {
+            color: #24d8ff;
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        /* Pricing */
+
+        .prices {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .prices article {
+            padding: 28px;
+            border: 1px solid #1b2d39;
+            border-radius: 13px;
+            background: #0a131b;
+            position: relative;
+        }
+
+        .prices .featured {
+            border-color: #286074;
+            box-shadow: 0 0 40px #24d8ff0b;
+        }
+
+        .prices article > label {
+            position: absolute;
+            top: 17px;
+            right: 18px;
+            padding: 5px 7px;
+            background: #103744;
+            color: #24d8ff;
+            font-size: 8px;
+            border-radius: 4px;
+        }
+
+        .prices h3 {
+            font-size: 38px;
+            margin: 10px 0;
+        }
+
+        .prices p,
+        .prices li {
+            color: #91a5b3;
+            font-size: 12px;
+        }
+
+        .prices ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        .prices li {
+            margin: 9px 0;
+        }
+
+        .prices li::before {
+            content: "✓";
+            color: #24d8ff;
+            margin-right: 9px;
+        }
+
+        .prices .btn {
+            width: 100%;
+        }
+
+        /* Contact */
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 13px;
+        }
+
+        .links a:hover {
+            color: #24d8ff;
+        }
+
+        form {
+            padding: 25px;
+            border: 1px solid #1b2d39;
+            border-radius: 13px;
+            background: #09121a;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        form label {
+            display: block;
+            color: #b9cbd6;
+            font-size: 11px;
+            margin-bottom: 12px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            margin-top: 5px;
+            padding: 12px;
+            border: 1px solid #223743;
+            border-radius: 8px;
+            background: #061018;
+            color: white;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #24d8ff;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        form .btn {
+            width: 100%;
+        }
+
+        .form-msg {
+            text-align: center;
+            font-size: 12px;
+            min-height: 20px;
+        }
+
+        .form-msg.success {
+            color: #24d8ff;
+        }
+
+        .form-msg.error {
+            color: #ff6464;
+        }
+
+        /* Reveal animation */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 30px 5%;
+            border-top: 1px solid #1b2d39;
+            color: #8195a2;
+            font-size: 11px;
+        }
+
+        footer div {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        footer b {
+            color: white;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .about,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects,
+            .prices {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .trust {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            #menu {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                right: 0;
+                padding: 20px;
+                background: #071018;
+                flex-direction: column;
+                align-items: stretch;
+                border-bottom: 1px solid #1b2d39;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            .cards,
+            .projects,
+            .prices {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .stats {
+                gap: 20px;
+            }
+
+            .hero-board {
+                height: 400px;
+            }
+
+            .pcb {
+                width: 250px;
+                height: 320px;
+            }
+
+            footer div {
+                display: block;
+            }
+
+            footer span {
+                display: block;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <a class="brand" href="#home">
+            <img src="siri-logo.svg" alt="Siri Electronics Logo">
+            <span>
+                Siri Electronics
+                <small>SIRI DESIGNING</small>
+            </span>
+        </a>
+
+        <button id="menu" aria-expanded="false">☰</button>
+
+        <nav id="nav">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#pricing">Pricing</a>
+            <a class="navbtn" href="#contact">Get a Quote</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section id="home" class="hero">
+
+    <div class="hero-grid">
+
+        <div>
+
+            <p class="eyebrow">
+                PCB DESIGN • LAYOUT • ENGINEERING
+            </p>
+
+            <h1>
+                Professional PCB design for
+                <em>real-world electronics.</em>
+            </h1>
+
+            <p class="lead">
+                From schematic to manufacturing-ready PCB.
+                Clean layout, practical routing, BOM, Gerber
+                and DFM-focused design support.
+            </p>
+
+            <div class="actions">
+
+                <a class="btn" href="#contact">
+                    Get a Free Quote →
+                </a>
+
+                <a class="btn ghost" href="#portfolio">
+                    View Portfolio
+                </a>
+
+            </div>
+
+            <div class="stats">
+
+                <div>
+                    <b>2+</b>
+                    <span>Years Experience</span>
+                </div>
+
+                <div>
+                    <b>2–8+</b>
+                    <span>Layer Boards</span>
+                </div>
+
+                <div>
+                    <b>100%</b>
+                    <span>Design Review</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-board">
+
+            <div class="pcb">
+
+                <b>SE</b>
+
+                <i></i>
+                <i></i>
+                <i></i>
+
+                <span>
+                    PCB<br>
+                    DESIGN
+                </span>
+
+            </div>
+
+            <label>✓ DRC CHECKED</label>
+            <label>⚡ DFM READY</label>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TRUST -->
+
+<section class="trust">
+
+    <div>✓ Clean Layout</div>
+    <div>✓ Manufacturing Focused</div>
+    <div>✓ Fast Communication</div>
+    <div>✓ Revision Support</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="heading">
+
+        <small>WHAT I DO</small>
+
+        <h2>
+            PCB services built for your project.
+        </h2>
+
+        <p>
+            Support from the first schematic review
+            through final manufacturing files.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div>
+            <b>⌘</b>
+            <h3>PCB Layout</h3>
+            <p>Component placement, routing and layer planning.</p>
+        </div>
+
+        <div>
+            <b>▦</b>
+            <h3>2-Layer PCB</h3>
+            <p>Cost-effective layouts for prototypes and electronics.</p>
+        </div>
+
+        <div>
+            <b>▥</b>
+            <h3>Multilayer PCB</h3>
+            <p>Stack-up, power/ground planning and routing.</p>
+        </div>
+
+        <div>
+            <b>⚙</b>
+            <h3>Schematic to PCB</h3>
+            <p>Convert supported schematics or netlists into PCB layouts.</p>
+        </div>
+
+        <div>
+            <b>☷</b>
+            <h3>BOM Preparation</h3>
+            <p>Organized component and footprint documentation.</p>
+        </div>
+
+        <div>
+            <b>↗</b>
+            <h3>Gerber Files</h3>
+            <p>Fabrication and drill outputs for manufacturing.</p>
+        </div>
+
+        <div>
+            <b>✓</b>
+            <h3>DRC / DFM</h3>
+            <p>Checks to catch common electrical and production issues.</p>
+        </div>
+
+        <div>
+            <b>↻</b>
+            <h3>PCB Redesign</h3>
+            <p>Improve existing boards for size, routing or manufacturability.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio" class="dark">
+
+    <div class="heading">
+
+        <small>SELECTED WORK</small>
+
+        <h2>PCB portfolio.</h2>
+
+        <p>
+            Professional PCB design and layout projects
+            by Siri Electronics.
+        </p>
+
+    </div>
+
+
+    <div class="projects">
+
+        <!-- Replace/add images in portfolio folder -->
+
+        <article class="project reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="portfolio/Screenshot (18).png"
+                    alt="Siri Electronics PCB Project 1"
+                    loading="lazy">
+
+                <span>PCB PROJECT 01</span>
+
+            </div>
+
+            <div class="project-body">
+
+                <small>SIRI DESIGNING</small>
+
+                <h3>PCB Design Project 01</h3>
+
+                <p>
+                    PCB layout and electronics design portfolio work.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="project reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="portfolio/Screenshot 2026-08-29 085724.png"
+                    alt="Siri Electronics PCB Project 2"
+                    loading="lazy">
+
+                <span>PCB PROJECT 02</span>
+
+            </div>
+
+            <div class="project-body">
+
+                <small>SIRI DESIGNING</small>
+
+                <h3>PCB Design Project 02</h3>
+
+                <p>
+                    PCB layout and electronics design portfolio work.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="project reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="portfolio/Screenshot 2026-08-29 090055.png"
+                    alt="Siri Electronics PCB Project 3"
+                    loading="lazy">
+
+                <span>PCB PROJECT 03</span>
+
+            </div>
+
+            <div class="project-body">
+
+                <small>SIRI DESIGNING</small>
+
+                <h3>PCB Design Project 03</h3>
+
+                <p>
+                    PCB layout and electronics design portfolio work.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="project reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="portfolio/Screenshot 2026-08-29 090418.png"
+                    alt="Siri Electronics PCB Project 4"
+                    loading="lazy">
+
+                <span>PCB PROJECT 04</span>
+
+            </div>
+
+            <div class="project-body">
+
+                <small>SIRI DESIGNING</small>
+
+                <h3>PCB Design Project 04</h3>
+
+                <p>
+                    PCB layout and electronics design portfolio work.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="project reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="portfolio/Screenshot 2026-08-29 090512.png"
+                    alt="Siri Electronics PCB Project 5"
+                    loading="lazy">
+
+                <span>PCB PROJECT 05</span>
+
+            </div>
+
+            <div class="project-body">
+
+                <small>SIRI DESIGNING</small>
+
+                <h3>PCB Design Project 05</h3>
+
+                <p>
+                    PCB layout and electronics design portfolio work.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="project reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="portfolio/Screenshot 2026-08-29 094837.png"
+                    alt="Siri Electronics PCB Project 6"
+                    loading="lazy">
+
+                <span>PCB PROJECT 06</span>
+
+            </div>
+
+            <div class="project-body">
+
+                <small>SIRI DESIGNING</small>
+
+                <h3>PCB Design Project 06</h3>
+
+                <p>
+                    PCB layout and electronics design portfolio work.
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="about">
+
+        <div class="heading">
+
+            <small>ABOUT SIRI ELECTRONICS</small>
+
+            <h2>
+                Engineering-focused.
+                Manufacturing-minded.
+            </h2>
+
+            <p>
+                Siri Electronics provides freelance PCB design
+                and layout services for engineers, startups,
+                students and electronics businesses.
+            </p>
+
+            <p>
+                With <strong>2+ years of PCB designing experience</strong>,
+                the focus is clean, reviewable and
+                manufacturing-ready PCB design.
+            </p>
+
+            <a class="text" href="#contact">
+                Start your project →
+            </a>
+
+        </div>
+
+
+        <div class="skills">
+
+            <div>
+                <span>PCB Design & Layout</span>
+                <b>95%</b>
+                <i style="width:95%"></i>
+            </div>
+
+            <div>
+                <span>Routing & Placement</span>
+                <b>95%</b>
+                <i style="width:95%"></i>
+            </div>
+
+            <div>
+                <span>DRC / DFM</span>
+                <b>90%</b>
+                <i style="width:90%"></i>
+            </div>
+
+            <div>
+                <span>BOM / Gerber</span>
+                <b>90%</b>
+                <i style="width:90%"></i>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section id="pricing" class="dark">
+
+    <div class="heading">
+
+        <small>STARTING PRICES</small>
+
+        <h2>
+            Simple packages.
+            Custom quotes.
+        </h2>
+
+        <p>
+            Final pricing depends on complexity,
+            layers, components and deadline.
+        </p>
+
+    </div>
+
+
+    <div class="prices">
+
+        <article>
+
+            <small>BASIC</small>
+
+            <h3>₹1,500+</h3>
+
+            <p>Simple PCB layouts.</p>
+
+            <ul>
+                <li>2-layer PCB</li>
+                <li>Placement & routing</li>
+                <li>DRC</li>
+                <li>Gerber</li>
+            </ul>
+
+            <a class="btn ghost" href="#contact">
+                Request Quote
+            </a>
+
+        </article>
+
+
+        <article class="featured">
+
+            <label>POPULAR</label>
+
+            <small>STANDARD</small>
+
+            <h3>₹3,500+</h3>
+
+            <p>Medium-complexity projects.</p>
+
+            <ul>
+                <li>2–4 layers</li>
+                <li>Placement & routing</li>
+                <li>DRC / DFM</li>
+                <li>BOM + Gerber</li>
+                <li>2 revisions</li>
+            </ul>
+
+            <a class="btn" href="#contact">
+                Request Quote
+            </a>
+
+        </article>
+
+
+        <article>
+
+            <small>PROFESSIONAL</small>
+
+            <h3>₹7,500+</h3>
+
+            <p>Complex boards.</p>
+
+            <ul>
+                <li>Multilayer PCB</li>
+                <li>Advanced routing</li>
+                <li>Power / ground planning</li>
+                <li>DRC / DFM + BOM</li>
+                <li>Documentation</li>
+            </ul>
+
+            <a class="btn ghost" href="#contact">
+                Request Quote
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact">
+
+        <div>
+
+            <div class="heading">
+
+                <small>LET'S BUILD</small>
+
+                <h2>
+                    Have a PCB project?
+                </h2>
+
+                <p>
+                    Send your requirements and get a scope,
+                    estimated price and timeline.
+                </p>
+
+            </div>
+
+
+            <div class="links">
+
+                <a
+                    href="https://wa.me/917013163756"
+                    target="_blank"
+                    rel="noopener">
+                    WhatsApp: +91 70131 63756
+                </a>
+
+                <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noopener">
+                    Instagram: @Siri_electronic
+                </a>
+
+                <a href="mailto:sirielectronics.in@gmail.com">
+                    ✉ sirielectronics.in@gmail.com
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <form id="quoteForm">
+
+            <div class="form-row">
+
+                <label>
+                    Name
+                    <input
+                        name="name"
+                        required
+                        placeholder="Your name">
+                </label>
+
+                <label>
+                    Email
+                    <input
+                        type="email"
+                        name="gmail"
+                        required
+                        placeholder="you@example.com">
+                </label>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <label>
+                    WhatsApp
+                    <input
+                        name="phone"
+                        placeholder="+91 XXXXX XXXXX">
+                </label>
+
+                <label>
+                    Project Type
+
+                    <select name="type">
+
+                        <option>PCB Layout</option>
+                        <option>Schematic to PCB</option>
+                        <option>Multilayer PCB</option>
+                        <option>PCB Redesign</option>
+                        <option>BOM / Gerber</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </label>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <label>
+                    Layers
+
+                    <select name="layers">
+
+                        <option>2 Layers</option>
+                        <option>4 Layers</option>
+                        <option>6 Layers</option>
+                        <option>8+ Layers</option>
+                        <option>Not sure</option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+                    Approx. Components
+
+                    <input
+                        name="components"
+                        placeholder="e.g. 50">
+
+                </label>
+
+            </div>
+
+
+            <label>
+                Project Description
+
+                <textarea
+                    name="description"
+                    required
+                    placeholder="Tell me about the board, deadline, dimensions, software/files available, and special requirements..."></textarea>
+
+            </label>
+
+
+            <button
+                class="btn"
+                type="submit">
+
+                Send Project Enquiry →
+
+            </button>
+
+
+            <p id="formMsg" class="form-msg"></p>
+
+        </form>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div>
+
+        <b>Siri Electronics.</b>
+
+        <span>
+            © <span id="year"></span>
+            Siri Electronics · Siri Designing
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ------------------------------------------
-    // 1. CURRENT YEAR
-    // ------------------------------------------
-    const yearElement = document.getElementById("year");
+    // ==========================================
+    // CURRENT YEAR
+    // ==========================================
+
+    const yearElement =
+        document.getElementById("year");
 
     if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
+        yearElement.textContent =
+            new Date().getFullYear();
     }
 
 
-    // ------------------------------------------
-    // 2. MOBILE MENU
-    // ------------------------------------------
-    const menuButton = document.getElementById("menu");
-    const navigation = document.getElementById("nav");
+    // ==========================================
+    // MOBILE MENU
+    // ==========================================
+
+    const menuButton =
+        document.getElementById("menu");
+
+    const navigation =
+        document.getElementById("nav");
 
     if (menuButton && navigation) {
 
         menuButton.addEventListener("click", () => {
+
             navigation.classList.toggle("open");
 
-            const isOpen = navigation.classList.contains("open");
+            const isOpen =
+                navigation.classList.contains("open");
 
             menuButton.setAttribute(
                 "aria-expanded",
                 isOpen.toString()
             );
 
-            menuButton.textContent = isOpen ? "✕" : "☰";
+            menuButton.textContent =
+                isOpen ? "✕" : "☰";
+
         });
 
 
-        // Close menu after clicking a navigation link
-        navigation.querySelectorAll("a").forEach((link) => {
+        navigation
+            .querySelectorAll("a")
+            .forEach((link) => {
 
-            link.addEventListener("click", () => {
+                link.addEventListener("click", () => {
 
-                navigation.classList.remove("open");
+                    navigation.classList.remove("open");
 
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
 
-                menuButton.textContent = "☰";
+                    menuButton.textContent = "☰";
+
+                });
+
             });
 
-        });
     }
 
 
-    // ------------------------------------------
-    // 3. QUOTE FORM
-    // ------------------------------------------
-    const quoteForm = document.getElementById("quoteForm");
-    const formMessage = document.getElementById("formMsg");
+    // ==========================================
+    // QUOTE FORM
+    // ==========================================
+
+    const quoteForm =
+        document.getElementById("quoteForm");
+
+    const formMessage =
+        document.getElementById("formMsg");
+
 
     if (quoteForm) {
 
-        quoteForm.addEventListener("submit", (event) => {
+        quoteForm.addEventListener(
+            "submit",
+            (event) => {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            const formData = new FormData(quoteForm);
-
-            const name = formData.get("name")?.trim() || "";
-            const email = formData.get("gmail")?.trim() || "";
-            const phone = formData.get("phone")?.trim() || "";
-            const projectType = formData.get("type") || "";
-            const layers = formData.get("layers") || "";
-            const components = formData.get("components")?.trim() || "";
-            const description =
-                formData.get("description")?.trim() || "";
+                const formData =
+                    new FormData(quoteForm);
 
 
-            // ------------------------------------------
-            // FORM VALIDATION
-            // ------------------------------------------
+                const name =
+                    formData.get("name")?.trim() || "";
 
-            if (!name || !email || !description) {
+                const email =
+                    formData.get("gmail")?.trim() || "";
 
-                showMessage(
-                    "Please fill in all required fields.",
-                    "error"
-                );
+                const phone =
+                    formData.get("phone")?.trim() || "";
 
-                return;
-            }
+                const projectType =
+                    formData.get("type") || "";
 
+                const layers =
+                    formData.get("layers") || "";
 
-            // Email validation
-            const emailPattern =
-                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const components =
+                    formData.get("components")?.trim() || "";
 
-            if (!emailPattern.test(email)) {
-
-                showMessage(
-                    "Please enter a valid email address.",
-                    "error"
-                );
-
-                return;
-            }
+                const description =
+                    formData.get("description")?.trim() || "";
 
 
-            // ------------------------------------------
-            // CREATE WHATSAPP MESSAGE
-            // ------------------------------------------
+                // ==================================
+                // VALIDATION
+                // ==================================
 
-            const whatsappMessage = `
+                if (!name || !email || !description) {
+
+                    showMessage(
+                        "Please fill in all required fields.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                const emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                if (!emailPattern.test(email)) {
+
+                    showMessage(
+                        "Please enter a valid email address.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                // ==================================
+                // WHATSAPP MESSAGE
+                // ==================================
+
+                const whatsappMessage = `
 Hello Siri Electronics,
 
 I would like to enquire about a PCB design project.
@@ -134,45 +1631,38 @@ Project Description:
 ${description}
 
 Thank you.
-`.trim();
+                `.trim();
 
 
-            const whatsappURL =
-                "https://wa.me/917013163756?text=" +
-                encodeURIComponent(whatsappMessage);
+                const whatsappURL =
+                    "https://wa.me/917013163756?text=" +
+                    encodeURIComponent(whatsappMessage);
 
 
-            // ------------------------------------------
-            // SUCCESS MESSAGE
-            // ------------------------------------------
-
-            showMessage(
-                "Your enquiry is ready. Opening WhatsApp...",
-                "success"
-            );
-
-
-            // ------------------------------------------
-            // OPEN WHATSAPP
-            // ------------------------------------------
-
-            setTimeout(() => {
-
-                window.open(
-                    whatsappURL,
-                    "_blank",
-                    "noopener,noreferrer"
+                showMessage(
+                    "Your enquiry is ready. Opening WhatsApp...",
+                    "success"
                 );
 
-            }, 700);
 
-        });
+                setTimeout(() => {
+
+                    window.open(
+                        whatsappURL,
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+
+                }, 700);
+
+            });
+
     }
 
 
-    // ------------------------------------------
-    // 4. FORM MESSAGE FUNCTION
-    // ------------------------------------------
+    // ==========================================
+    // FORM MESSAGE
+    // ==========================================
 
     function showMessage(message, type) {
 
@@ -190,73 +1680,86 @@ Thank you.
     }
 
 
-    // ------------------------------------------
-    // 5. SMOOTH SCROLLING
-    // ------------------------------------------
+    // ==========================================
+    // SMOOTH SCROLL
+    // ==========================================
 
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach((link) => {
 
-        link.addEventListener("click", (event) => {
+            link.addEventListener(
+                "click",
+                (event) => {
 
-            const targetID =
-                link.getAttribute("href");
+                    const targetID =
+                        link.getAttribute("href");
 
-            if (!targetID || targetID === "#") {
-                return;
-            }
+                    if (
+                        !targetID ||
+                        targetID === "#"
+                    ) {
+                        return;
+                    }
 
-            const target =
-                document.querySelector(targetID);
+                    const target =
+                        document.querySelector(
+                            targetID
+                        );
 
-            if (!target) {
-                return;
-            }
+                    if (!target) {
+                        return;
+                    }
 
-            event.preventDefault();
+                    event.preventDefault();
 
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
 
-        });
-
-    });
-
-
-    // ------------------------------------------
-    // 6. PORTFOLIO IMAGE HOVER EFFECT
-    // ------------------------------------------
-
-    const projectImages =
-        document.querySelectorAll(".project-image img");
-
-    projectImages.forEach((image) => {
-
-        image.addEventListener("mouseenter", () => {
-
-            image.style.transform = "scale(1.05)";
-            image.style.transition =
-                "transform 0.4s ease";
+                });
 
         });
 
 
-        image.addEventListener("mouseleave", () => {
+    // ==========================================
+    // PORTFOLIO IMAGE HOVER
+    // ==========================================
 
-            image.style.transform = "scale(1)";
+    document
+        .querySelectorAll(".project-image img")
+        .forEach((image) => {
+
+            image.addEventListener(
+                "mouseenter",
+                () => {
+
+                    image.style.transform =
+                        "scale(1.05)";
+
+                });
+
+
+            image.addEventListener(
+                "mouseleave",
+                () => {
+
+                    image.style.transform =
+                        "scale(1)";
+
+                });
 
         });
 
-    });
 
-
-    // ------------------------------------------
-    // 7. SCROLL REVEAL ANIMATION
-    // ------------------------------------------
+    // ==========================================
+    // SCROLL REVEAL
+    // ==========================================
 
     const revealElements =
         document.querySelectorAll(".reveal");
+
 
     if ("IntersectionObserver" in window) {
 
@@ -266,11 +1769,13 @@ Thank you.
 
                     entries.forEach((entry) => {
 
-                        if (entry.isIntersecting) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                            entry.target.classList.add(
-                                "visible"
-                            );
+                            entry.target
+                                .classList
+                                .add("visible");
 
                             observer.unobserve(
                                 entry.target
@@ -288,95 +1793,124 @@ Thank you.
 
 
         revealElements.forEach((element) => {
+
             observer.observe(element);
+
         });
 
     } else {
 
         revealElements.forEach((element) => {
+
             element.classList.add("visible");
+
         });
 
     }
 
 
-    // ------------------------------------------
-    // 8. ACTIVE NAVIGATION
-    // ------------------------------------------
+    // ==========================================
+    // ACTIVE NAVIGATION
+    // ==========================================
 
     const sections =
-        document.querySelectorAll("section[id]");
+        document.querySelectorAll(
+            "section[id]"
+        );
 
     const navLinks =
-        document.querySelectorAll("#nav a[href^='#']");
+        document.querySelectorAll(
+            "#nav a[href^='#']"
+        );
 
 
-    const sectionObserver =
-        new IntersectionObserver(
-            (entries) => {
+    if ("IntersectionObserver" in window) {
 
-                entries.forEach((entry) => {
+        const sectionObserver =
+            new IntersectionObserver(
+                (entries) => {
 
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    const currentID =
-                        entry.target.getAttribute("id");
-
-
-                    navLinks.forEach((link) => {
-
-                        link.classList.remove("active");
+                    entries.forEach((entry) => {
 
                         if (
-                            link.getAttribute("href") ===
-                            `#${currentID}`
+                            !entry.isIntersecting
                         ) {
-                            link.classList.add("active");
+                            return;
                         }
+
+
+                        const currentID =
+                            entry.target
+                                .getAttribute("id");
+
+
+                        navLinks.forEach((link) => {
+
+                            link.classList.remove(
+                                "active"
+                            );
+
+
+                            if (
+                                link.getAttribute(
+                                    "href"
+                                ) ===
+                                `#${currentID}`
+                            ) {
+
+                                link.classList.add(
+                                    "active"
+                                );
+
+                            }
+
+                        });
 
                     });
 
-                });
-
-            },
-            {
-                rootMargin: "-30% 0px -60% 0px"
-            }
-        );
-
-
-    sections.forEach((section) => {
-        sectionObserver.observe(section);
-    });
-
-
-    // ------------------------------------------
-    // 9. PHONE NUMBER CLICK TRACKING
-    // ------------------------------------------
-
-    const whatsappLinks =
-        document.querySelectorAll(
-            'a[href*="wa.me"]'
-        );
-
-    whatsappLinks.forEach((link) => {
-
-        link.addEventListener("click", () => {
-
-            console.log(
-                "Siri Electronics WhatsApp opened."
+                },
+                {
+                    rootMargin:
+                        "-30% 0px -60% 0px"
+                }
             );
+
+
+        sections.forEach((section) => {
+
+            sectionObserver.observe(section);
 
         });
 
-    });
+    }
 
 
-    // ------------------------------------------
-    // 10. CONSOLE BRAND MESSAGE
-    // ------------------------------------------
+    // ==========================================
+    // WHATSAPP CLICK LOG
+    // ==========================================
+
+    document
+        .querySelectorAll(
+            'a[href*="wa.me"]'
+        )
+        .forEach((link) => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    console.log(
+                        "Siri Electronics WhatsApp opened."
+                    );
+
+                });
+
+        });
+
+
+    // ==========================================
+    // BRAND CONSOLE MESSAGE
+    // ==========================================
 
     console.log(
         "%cSIRI ELECTRONICS",
@@ -388,3 +1922,9 @@ Thank you.
     );
 
 });
+
+</script>
+
+</body>
+</html>
+```
