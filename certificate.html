@@ -1,0 +1,445 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PCB Design Certification Courses | Siri Electronics</title>
+
+    <meta name="description"
+          content="Learn professional PCB design with CADSTAR and OrCAD certification courses from Siri Electronics.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .cert-hero {
+            padding: 100px 20px 70px;
+            text-align: center;
+            background:
+                radial-gradient(circle at top, rgba(0, 200, 255, 0.15), transparent 45%),
+                #07111f;
+        }
+
+        .cert-hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #00d9ff;
+        }
+
+        .cert-hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #b8c4d4;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .course-section {
+            padding: 70px 20px;
+            background: #091522;
+        }
+
+        .course-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .course-card {
+            background: #101f31;
+            border: 1px solid #243b55;
+            border-radius: 18px;
+            padding: 35px;
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            border-color: #00d9ff;
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.12);
+        }
+
+        .course-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .course-card h2 {
+            color: #00d9ff;
+            margin-bottom: 12px;
+        }
+
+        .course-card > p {
+            color: #c3cfdd;
+            line-height: 1.7;
+        }
+
+        .course-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .course-info span {
+            background: #172b40;
+            border: 1px solid #29445e;
+            padding: 8px 12px;
+            border-radius: 20px;
+            color: #d7e3ef;
+            font-size: 14px;
+        }
+
+        .course-card h3 {
+            margin-top: 25px;
+            color: white;
+        }
+
+        .course-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .course-card li {
+            color: #c3cfdd;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .course-card li::before {
+            content: "✓";
+            color: #00d9ff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .enroll-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            border-radius: 8px;
+            background: #00d9ff;
+            color: #06111c;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .enroll-btn:hover {
+            background: white;
+            transform: scale(1.03);
+        }
+
+        .why-section {
+            padding: 70px 20px;
+            background: #07111f;
+            text-align: center;
+        }
+
+        .why-section h2 {
+            color: #00d9ff;
+            font-size: 34px;
+            margin-bottom: 35px;
+        }
+
+        .why-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .why-box {
+            background: #101f31;
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid #243b55;
+        }
+
+        .why-box h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .why-box p {
+            color: #aebdcd;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .certificate-section {
+            padding: 70px 20px;
+            text-align: center;
+            background: #091522;
+        }
+
+        .certificate-section h2 {
+            color: #00d9ff;
+            font-size: 34px;
+        }
+
+        .certificate-section p {
+            max-width: 700px;
+            margin: 15px auto;
+            color: #b8c4d4;
+            line-height: 1.7;
+        }
+
+        .certificate-box {
+            max-width: 750px;
+            margin: 35px auto;
+            padding: 45px;
+            border: 2px solid #00d9ff;
+            border-radius: 15px;
+            background: #101f31;
+        }
+
+        .certificate-box h3 {
+            font-size: 30px;
+            color: white;
+        }
+
+        .certificate-box strong {
+            color: #00d9ff;
+        }
+
+        @media (max-width: 800px) {
+
+            .cert-hero h1 {
+                font-size: 36px;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+
+    <section class="cert-hero">
+
+        <h1>PCB Design Certification Courses</h1>
+
+        <p>
+            Build practical PCB design skills with industry-focused
+            training in CADSTAR and OrCAD. Learn from fundamentals
+            to complete PCB design projects.
+        </p>
+
+    </section>
+
+
+    <!-- COURSES -->
+
+    <section class="course-section">
+
+        <div class="course-grid">
+
+            <!-- CADSTAR -->
+
+            <div class="course-card">
+
+                <div class="course-icon">🔧</div>
+
+                <h2>CADSTAR PCB Design</h2>
+
+                <p>
+                    Learn professional PCB schematic, placement,
+                    routing, design rules and manufacturing preparation
+                    using CADSTAR.
+                </p>
+
+                <div class="course-info">
+                    <span>Duration: 4–6 Weeks</span>
+                    <span>Beginner → Advanced</span>
+                    <span>Project Based</span>
+                </div>
+
+                <h3>Course Syllabus</h3>
+
+                <ul>
+                    <li>PCB Design Fundamentals</li>
+                    <li>Schematic Creation</li>
+                    <li>Component & Library Management</li>
+                    <li>PCB Board Setup</li>
+                    <li>Component Placement</li>
+                    <li>Interactive Routing</li>
+                    <li>Power & Ground Routing</li>
+                    <li>Design Rules & DRC</li>
+                    <li>Multilayer PCB Design</li>
+                    <li>Gerber & Drill Files</li>
+                    <li>BOM Generation</li>
+                    <li>DFM Fundamentals</li>
+                    <li>Complete PCB Project</li>
+                </ul>
+
+                <a class="enroll-btn"
+                   href="https://wa.me/917013163756"text=Hello%20Siri%20Electronics,%20I%20am%20interested%20in%20the%20CADSTAR%20PCB%20Design%20Certification%20Course.">
+                    Enroll Now
+                </a>
+
+            </div>
+
+
+            <!-- ORCAD -->
+
+            <div class="course-card">
+
+                <div class="course-icon">⚡</div>
+
+                <h2>OrCAD PCB Design</h2>
+
+                <p>
+                    Master schematic capture, PCB layout, component
+                    placement, routing, DRC and manufacturing file
+                    generation using OrCAD.
+                </p>
+
+                <div class="course-info">
+                    <span>Duration: 4–6 Weeks</span>
+                    <span>Beginner → Advanced</span>
+                    <span>Project Based</span>
+                </div>
+
+                <h3>Course Syllabus</h3>
+
+                <ul>
+                    <li>Schematic Capture</li>
+                    <li>Component Library Management</li>
+                    <li>Footprint Assignment</li>
+                    <li>PCB Editor Fundamentals</li>
+                    <li>Board Setup</li>
+                    <li>Component Placement</li>
+                    <li>Manual & Interactive Routing</li>
+                    <li>Power & Ground Planes</li>
+                    <li>Differential Pair Routing</li>
+                    <li>Design Rules & DRC</li>
+                    <li>Gerber & Drill Files</li>
+                    <li>BOM Generation</li>
+                    <li>DFM Fundamentals</li>
+                    <li>Complete PCB Project</li>
+                </ul>
+
+                <a class="enroll-btn"
+                   href="https://wa.me/917013163756"text=Hello%20Siri%20Electronics,%20I%20am%20interested%20in%20the%20OrCAD%20PCB%20Design%20Certification%20Course.">
+                    Enroll Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY SIRI ELECTRONICS -->
+
+    <section class="why-section">
+
+        <h2>Why Learn With Siri Electronics?</h2>
+
+        <div class="why-grid">
+
+            <div class="why-box">
+                <h3>Practical Training</h3>
+                <p>
+                    Focus on real PCB design workflows rather than
+                    only theoretical concepts.
+                </p>
+            </div>
+
+            <div class="why-box">
+                <h3>Industry Skills</h3>
+                <p>
+                    Learn placement, routing, DRC, DFM,
+                    Gerber and BOM preparation.
+                </p>
+            </div>
+
+            <div class="why-box">
+                <h3>Live Projects</h3>
+                <p>
+                    Apply your knowledge by completing practical
+                    PCB design projects.
+                </p>
+            </div>
+
+            <div class="why-box">
+                <h3>Course Certificate</h3>
+                <p>
+                    Receive a Siri Electronics course completion
+                    certificate after meeting the course requirements.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CERTIFICATE -->
+
+    <section class="certificate-section">
+
+        <h2>Course Completion Certificate</h2>
+
+        <p>
+            Students who successfully complete the required training
+            and project can receive a course completion certificate
+            from Siri Electronics.
+        </p>
+
+        <div class="certificate-box">
+
+            <h3>SIRI ELECTRONICS</h3>
+
+            <p>
+                Certificate of Completion
+            </p>
+
+            <p>
+                This certificate is awarded to
+            </p>
+
+            <h3>
+                <strong>STUDENT NAME</strong>
+            </h3>
+
+            <p>
+                for successfully completing the
+            </p>
+
+            <p>
+                <strong>CADSTAR / OrCAD PCB Design Course</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
+```
