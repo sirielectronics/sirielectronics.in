@@ -1,445 +1,180 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>PCB Design Certification Courses | Siri Electronics</title>
-
-    <meta name="description"
-          content="Learn professional PCB design with CADSTAR and OrCAD certification courses from Siri Electronics.">
-
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        .cert-hero {
-            padding: 100px 20px 70px;
-            text-align: center;
-            background:
-                radial-gradient(circle at top, rgba(0, 200, 255, 0.15), transparent 45%),
-                #07111f;
-        }
-
-        .cert-hero h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
-            color: #00d9ff;
-        }
-
-        .cert-hero p {
-            max-width: 750px;
-            margin: auto;
-            color: #b8c4d4;
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        .course-section {
-            padding: 70px 20px;
-            background: #091522;
-        }
-
-        .course-grid {
-            max-width: 1150px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .course-card {
-            background: #101f31;
-            border: 1px solid #243b55;
-            border-radius: 18px;
-            padding: 35px;
-            transition: 0.3s;
-        }
-
-        .course-card:hover {
-            transform: translateY(-8px);
-            border-color: #00d9ff;
-            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.12);
-        }
-
-        .course-icon {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
-
-        .course-card h2 {
-            color: #00d9ff;
-            margin-bottom: 12px;
-        }
-
-        .course-card > p {
-            color: #c3cfdd;
-            line-height: 1.7;
-        }
-
-        .course-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .course-info span {
-            background: #172b40;
-            border: 1px solid #29445e;
-            padding: 8px 12px;
-            border-radius: 20px;
-            color: #d7e3ef;
-            font-size: 14px;
-        }
-
-        .course-card h3 {
-            margin-top: 25px;
-            color: white;
-        }
-
-        .course-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .course-card li {
-            color: #c3cfdd;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .course-card li::before {
-            content: "✓";
-            color: #00d9ff;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .enroll-btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 13px 25px;
-            border-radius: 8px;
-            background: #00d9ff;
-            color: #06111c;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .enroll-btn:hover {
-            background: white;
-            transform: scale(1.03);
-        }
-
-        .why-section {
-            padding: 70px 20px;
-            background: #07111f;
-            text-align: center;
-        }
-
-        .why-section h2 {
-            color: #00d9ff;
-            font-size: 34px;
-            margin-bottom: 35px;
-        }
-
-        .why-grid {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .why-box {
-            background: #101f31;
-            padding: 25px;
-            border-radius: 14px;
-            border: 1px solid #243b55;
-        }
-
-        .why-box h3 {
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .why-box p {
-            color: #aebdcd;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .certificate-section {
-            padding: 70px 20px;
-            text-align: center;
-            background: #091522;
-        }
-
-        .certificate-section h2 {
-            color: #00d9ff;
-            font-size: 34px;
-        }
-
-        .certificate-section p {
-            max-width: 700px;
-            margin: 15px auto;
-            color: #b8c4d4;
-            line-height: 1.7;
-        }
-
-        .certificate-box {
-            max-width: 750px;
-            margin: 35px auto;
-            padding: 45px;
-            border: 2px solid #00d9ff;
-            border-radius: 15px;
-            background: #101f31;
-        }
-
-        .certificate-box h3 {
-            font-size: 30px;
-            color: white;
-        }
-
-        .certificate-box strong {
-            color: #00d9ff;
-        }
-
-        @media (max-width: 800px) {
-
-            .cert-hero h1 {
-                font-size: 36px;
-            }
-
-            .course-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .why-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .course-card {
-                padding: 25px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCB Design Certification Courses | Siri Electronics</title>
+  <meta name="description" content="CADSTAR and OrCAD PCB Design courses with practical assessment and Siri Electronics course completion certificates.">
+  <link rel="icon" href="logo.svg">
+  <style>
+    :root{--navy:#071525;--panel:#0f2033;--line:#27415c;--cyan:#00d9ff;--gold:#d8a52b;--text:#edf5ff;--muted:#b8c7d8}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--navy);color:var(--text)}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(7,21,37,.94);backdrop-filter:blur(12px);border-bottom:1px solid #20364e}
+    .nav{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    .logo{height:54px;width:auto;background:#fff;border-radius:10px;padding:3px}.navlinks{display:flex;gap:22px;align-items:center}.navlinks a{color:#dce8f4;text-decoration:none;font-weight:700;font-size:14px}.navlinks a:hover{color:var(--cyan)}
+    .hero{text-align:center;padding:90px 20px 75px;background:radial-gradient(circle at 50% 0,rgba(0,217,255,.18),transparent 45%),#071525}
+    .hero h1{font-size:clamp(36px,6vw,62px);margin:15px 0;color:var(--cyan);letter-spacing:.5px}.hero p{max-width:800px;margin:auto;color:var(--muted);font-size:18px;line-height:1.75}
+    .section{padding:70px 20px}.section.alt{background:#091a2a}.wrap{max-width:1180px;margin:auto}.section-title{text-align:center;margin:0 0 12px;font-size:36px;color:var(--cyan)}.section-sub{text-align:center;color:var(--muted);max-width:760px;margin:0 auto 40px;line-height:1.7}
+    .courses{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}.card{background:linear-gradient(145deg,#11263b,#0c1a2b);border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:0 14px 40px rgba(0,0,0,.18);transition:.25s}.card:hover{transform:translateY(-6px);border-color:var(--cyan)}
+    .badge{display:inline-block;padding:7px 12px;border-radius:20px;background:#17324b;color:var(--cyan);font-size:12px;font-weight:800}.card h2{color:#fff;font-size:28px;margin:18px 0 10px}.card p{color:var(--muted);line-height:1.7}.facts{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0}.facts span{border:1px solid #31506d;border-radius:20px;padding:7px 11px;color:#dce8f4;font-size:13px}.card ul{padding:0;list-style:none;color:var(--muted);line-height:1.9}.card li:before{content:"✓";color:var(--cyan);font-weight:900;margin-right:9px}
+    .btn{display:inline-block;border:0;border-radius:9px;padding:13px 22px;text-decoration:none;font-weight:800;cursor:pointer}.wa{background:#25d366;color:#06130b}.wa:hover{filter:brightness(1.08)}.secondary{background:#162c43;color:#fff;border:1px solid #34516e}
+    .student-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:28px;align-items:start}.student-form,.student-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px}.student-form label{display:block;color:#d9e7f4;font-size:14px;font-weight:700;margin:14px 0 7px}.student-form input,.student-form select{width:100%;padding:12px 13px;border-radius:8px;border:1px solid #34516e;background:#091a2a;color:#fff;outline:none}.student-form input:focus,.student-form select:focus{border-color:var(--cyan)}.student-card{background:linear-gradient(145deg,#fff,#f7f8fa);color:#17243a;text-align:center}.student-card .mini-logo{height:62px}.cert-name{font-family:Georgia,serif;font-size:36px;color:#12294b;margin:15px 0}.detail-table{width:100%;border-collapse:collapse;text-align:left;margin:20px 0}.detail-table td{padding:9px;border-bottom:1px solid #dfe5eb}.detail-table td:first-child{font-weight:800;color:#38516a;width:38%}.cert-id{font-weight:800;color:#0d3a68}.grade{color:#b07a10;font-weight:900}.disclaimer{font-size:11px;color:#6c7782;line-height:1.5;margin-top:18px}
+    .preview{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}.preview img{width:100%;display:block;border-radius:14px;border:1px solid #38516a;box-shadow:0 18px 50px rgba(0,0,0,.35)}.preview-copy{color:var(--muted);line-height:1.8}.preview-copy strong{color:#fff}
+    .footer{text-align:center;padding:35px 20px;background:#050e18;color:#8ea0b3}.footer a{color:var(--cyan)}
+    @media(max-width:850px){.courses,.student-grid,.preview{grid-template-columns:1fr}.navlinks{gap:10px}.navlinks a:nth-child(2),.navlinks a:nth-child(3){display:none}}
+    @media(max-width:520px){.nav{padding:10px}.logo{height:44px}.navlinks a{font-size:12px}.section{padding:50px 15px}.card,.student-form,.student-card{padding:22px}.cert-name{font-size:28px}}
+  </style>
 </head>
-
 <body>
+<header class="topbar">
+  <nav class="nav">
+    <a href="index.html" aria-label="Siri Electronics home"><img src="logo.svg" class="logo" alt="Siri Electronics"></a>
+    <div class="navlinks">
+      <a href="index.html">Home</a><a href="#courses">Courses</a><a href="#certificate">Certificate</a><a href="verify.html">Verify Certificate</a>
+    </div>
+  </nav>
+</header>
 
-    <!-- HERO -->
+<section class="hero">
+  <img src="logo.svg" alt="Siri Electronics logo" style="width:min(390px,80%);height:auto;border-radius:12px">
+  <h1>PCB Design Certification Courses</h1>
+  <p>Practical, project-based training in CADSTAR and OrCAD PCB design, with assessment and a verifiable Siri Electronics course completion certificate.</p>
+</section>
 
-    <section class="cert-hero">
+<section class="section" id="courses">
+  <div class="wrap">
+    <h2 class="section-title">Choose Your Course</h2>
+    <p class="section-sub">Learn schematic capture, placement, routing, DRC, Gerber, BOM and DFM through practical PCB projects.</p>
+    <div class="courses">
+      <article class="card">
+        <span class="badge">CADSTAR • BEGINNER → ADVANCED</span><h2>CADSTAR PCB Design</h2>
+        <p>Hands-on CADSTAR workflow from schematic creation to manufacturing documentation.</p>
+        <div class="facts"><span>4–6 Weeks</span><span>Project Based</span><span>Practical Assessment</span></div>
+        <ul><li>PCB fundamentals & schematic design</li><li>Library and component management</li><li>Placement, routing & multilayer design</li><li>Design rules, DRC & DFM</li><li>Gerber, drill files & BOM</li><li>Complete practical PCB project</li></ul>
+        <a class="btn wa" data-course="CADSTAR PCB Design – Beginner to Advanced" href="#">💬 Enroll on WhatsApp</a>
+      </article>
+      <article class="card">
+        <span class="badge">ORCAD • BEGINNER → ADVANCED</span><h2>OrCAD PCB Design</h2>
+        <p>Practical OrCAD training covering schematic capture, PCB Editor, routing and manufacturing output.</p>
+        <div class="facts"><span>4–6 Weeks</span><span>Project Based</span><span>Practical Assessment</span></div>
+        <ul><li>Schematic capture & libraries</li><li>Footprint assignment & board setup</li><li>Placement, routing & power planes</li><li>Differential pairs, DRC & design rules</li><li>Gerber, drill files & BOM</li><li>Complete practical PCB project</li></ul>
+        <a class="btn wa" data-course="OrCAD PCB Design – Beginner to Advanced" href="#">💬 Enroll on WhatsApp</a>
+      </article>
+    </div>
+  </div>
+</section>
 
-        <h1>PCB Design Certification Courses</h1>
+<section class="section alt" id="enroll">
+  <div class="wrap">
+    <h2 class="section-title">Student Enrollment</h2>
+    <p class="section-sub">Enter the student's details to generate a ready-to-send WhatsApp enrollment message.</p>
+    <div class="student-grid">
+      <form class="student-form" id="enrollForm">
+        <label for="name">Student Name</label><input id="name" value="Sunil Kumar" required>
+        <label for="college">College Name</label><input id="college" value="Srinidhi College of Engineering" required>
+        <label for="branch">Branch</label><input id="branch" value="ECE" required>
+        <label for="course">Course</label>
+        <select id="course"><option>OrCAD PCB Design – Beginner to Advanced</option><option>CADSTAR PCB Design – Beginner to Advanced</option></select>
+        <button class="btn wa" type="submit" style="margin-top:18px">💬 Enroll Directly on WhatsApp</button>
+      </form>
+      <div class="student-card">
+       <img src="logo.svg" class="mini-logo" alt="Siri Electronics logo">
+        <h3>Sample Student Certificate</h3>
+        <div class="cert-name" id="previewName">Sunil Kumar</div>
+        <table class="detail-table">
+          <tr><td>Course</td><td id="previewCourse">OrCAD PCB Design – Beginner to Advanced</td></tr>
+          <tr><td>College</td><td id="previewCollege">vjit College of Engineering</td></tr>
+          <tr><td>Branch</td><td id="previewBranch">ECE</td></tr>
+          <tr><td>Grade</td><td class="grade">A+ (Excellent)</td></tr>
+          <tr><td>Certificate ID</td><td class="cert-id">SIRI-PCB-2024-0678</td></tr>
+          <tr><td>Issue Date</td><td>31 May 2024</td></tr>
+        </table>
+        <p class="disclaimer">Issued by Siri Electronics as a course completion certificate. It is not an official certification issued by Cadence/OrCAD or Zuken/CADSTAR.</p>
+      <div class="student-card">
+       <img src="logo.svg" class="mini-logo" alt="Siri Electronics logo">
+        <h3>Sample Student Certificate</h3>
+        <div class="cert-name" id="previewName">rahul kumar</div>
+        <table class="detail-table">
+          <tr><td>Course</td><td id="previewCourse">OrCAD PCB Design – Beginner to Advanced</td></tr>
+          <tr><td>College</td><td id="previewCollege">Srinidhi College of Engineering</td></tr>
+          <tr><td>Branch</td><td id="previewBranch">ECE</td></tr>
+          <tr><td>Grade</td><td class="grade">A+ (Excellent)</td></tr>
+          <tr><td>Certificate ID</td><td class="cert-id">SIRI-PCB-2026-0001</td></tr>
+          <tr><td>Issue Date</td><td>31 May 2026</td></tr>
+        </table>
+        <p class="disclaimer">Issued by Siri Electronics as a course completion certificate. It is not an official certification issued by Cadence/OrCAD or Zuken/CADSTAR.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <p>
-            Build practical PCB design skills with industry-focused
-            training in CADSTAR and OrCAD. Learn from fundamentals
-            to complete PCB design projects.
-        </p>
+<section class="section" id="certificate">
+  <div class="wrap">
+    <h2 class="section-title">Certificate Design</h2>
+    <p class="section-sub">A professional certificate layout with Siri Electronics branding, certificate ID, student details, grade, signatures and QR verification area.</p>
+    <div class="preview">
+      <img src="certificate-preview.png" alt="Siri Electronics PCB design certificate sample">
+      <div class="preview-copy">
+        <p><strong>Certificate includes:</strong></p>
+        <p>✓ Siri Electronics logo<br>✓ Student name<br>✓ Course name (CADSTAR or OrCAD)<br>✓ College and branch<br>✓ Certificate ID<br>✓ Issue date<br>✓ Grade / assessment result<br>✓ Signature area<br>✓ QR verification area<br>✓ Clear issuer disclaimer</p>
+        <a class="btn secondary" href="verify.html">🔎 Verify a Certificate</a>
 
-    </section>
+<section class="section" id="certificate">
+  <div class="wrap">
+    <h2 class="section-title">Certificate Design</h2>
+    <p class="section-sub">A professional certificate layout with Siri Electronics branding, certificate ID, student details, grade, signatures and QR verification area.</p>
+    <div class="preview">
+      <img src="certificate1-preview.png" alt="Siri Electronics PCB design certificate sample">
+      <div class="preview-copy">
+        <p><strong>Certificate includes:</strong></p>
+        <p>✓ Siri Electronics logo<br>✓ Student name<br>✓ Course name (CADSTAR or OrCAD)<br>✓ College and branch<br>✓ Certificate ID<br>✓ Issue date<br>✓ Grade / assessment result<br>✓ Signature area<br>✓ QR verification area<br>✓ Clear issuer disclaimer</p>
+        <a class="btn secondary" href="verify.html">🔎 Verify a Certificate</a>
+      </div>
+    </div>
+  </div>
+</section>
 
+<footer class="footer">
+  <p>© 2026 Siri Electronics • PCB Design Training & Services</p>
+  <p><a href="index.html">Main Website</a> • <a href="verify.html">Certificate Verification</a></p>
+</footer>
 
-    <!-- COURSES -->
+<script>
+  // Replace this with Siri Electronics' WhatsApp number in international format.
+  // Example: 919876543210 (no +, spaces or hyphens).
+  const WHATSAPP_NUMBER = "917013163756";
 
-    <section class="course-section">
+  function whatsappLink(course, student = "", college = "", branch = "") {
+    const message =
+      "Hello Siri Electronics,%0A%0A" +
+      "I want to enroll in the " + course + " course.%0A%0A" +
+      "Student Name: " + student + "%0A" +
+      "College: " + college + "%0A" +
+      "Branch: " + branch;
+    return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message;
+  }
 
-        <div class="course-grid">
+  document.querySelectorAll(".wa[data-course]").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      const course = btn.dataset.course;
+      window.open(whatsappLink(course), "_blank");
+    });
+  });
 
-            <!-- CADSTAR -->
-
-            <div class="course-card">
-
-                <div class="course-icon">🔧</div>
-
-                <h2>CADSTAR PCB Design</h2>
-
-                <p>
-                    Learn professional PCB schematic, placement,
-                    routing, design rules and manufacturing preparation
-                    using CADSTAR.
-                </p>
-
-                <div class="course-info">
-                    <span>Duration: 4–6 Weeks</span>
-                    <span>Beginner → Advanced</span>
-                    <span>Project Based</span>
-                </div>
-
-                <h3>Course Syllabus</h3>
-
-                <ul>
-                    <li>PCB Design Fundamentals</li>
-                    <li>Schematic Creation</li>
-                    <li>Component & Library Management</li>
-                    <li>PCB Board Setup</li>
-                    <li>Component Placement</li>
-                    <li>Interactive Routing</li>
-                    <li>Power & Ground Routing</li>
-                    <li>Design Rules & DRC</li>
-                    <li>Multilayer PCB Design</li>
-                    <li>Gerber & Drill Files</li>
-                    <li>BOM Generation</li>
-                    <li>DFM Fundamentals</li>
-                    <li>Complete PCB Project</li>
-                </ul>
-
-                <a class="enroll-btn"
-                   href="https://wa.me/917013163756"text=Hello%20Siri%20Electronics,%20I%20am%20interested%20in%20the%20CADSTAR%20PCB%20Design%20Certification%20Course.">
-                    Enroll Now
-                </a>
-
-            </div>
-
-
-            <!-- ORCAD -->
-
-            <div class="course-card">
-
-                <div class="course-icon">⚡</div>
-
-                <h2>OrCAD PCB Design</h2>
-
-                <p>
-                    Master schematic capture, PCB layout, component
-                    placement, routing, DRC and manufacturing file
-                    generation using OrCAD.
-                </p>
-
-                <div class="course-info">
-                    <span>Duration: 4–6 Weeks</span>
-                    <span>Beginner → Advanced</span>
-                    <span>Project Based</span>
-                </div>
-
-                <h3>Course Syllabus</h3>
-
-                <ul>
-                    <li>Schematic Capture</li>
-                    <li>Component Library Management</li>
-                    <li>Footprint Assignment</li>
-                    <li>PCB Editor Fundamentals</li>
-                    <li>Board Setup</li>
-                    <li>Component Placement</li>
-                    <li>Manual & Interactive Routing</li>
-                    <li>Power & Ground Planes</li>
-                    <li>Differential Pair Routing</li>
-                    <li>Design Rules & DRC</li>
-                    <li>Gerber & Drill Files</li>
-                    <li>BOM Generation</li>
-                    <li>DFM Fundamentals</li>
-                    <li>Complete PCB Project</li>
-                </ul>
-
-                <a class="enroll-btn"
-                   href="https://wa.me/917013163756"text=Hello%20Siri%20Electronics,%20I%20am%20interested%20in%20the%20OrCAD%20PCB%20Design%20Certification%20Course.">
-                    Enroll Now
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- WHY SIRI ELECTRONICS -->
-
-    <section class="why-section">
-
-        <h2>Why Learn With Siri Electronics?</h2>
-
-        <div class="why-grid">
-
-            <div class="why-box">
-                <h3>Practical Training</h3>
-                <p>
-                    Focus on real PCB design workflows rather than
-                    only theoretical concepts.
-                </p>
-            </div>
-
-            <div class="why-box">
-                <h3>Industry Skills</h3>
-                <p>
-                    Learn placement, routing, DRC, DFM,
-                    Gerber and BOM preparation.
-                </p>
-            </div>
-
-            <div class="why-box">
-                <h3>Live Projects</h3>
-                <p>
-                    Apply your knowledge by completing practical
-                    PCB design projects.
-                </p>
-            </div>
-
-            <div class="why-box">
-                <h3>Course Certificate</h3>
-                <p>
-                    Receive a Siri Electronics course completion
-                    certificate after meeting the course requirements.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CERTIFICATE -->
-
-    <section class="certificate-section">
-
-        <h2>Course Completion Certificate</h2>
-
-        <p>
-            Students who successfully complete the required training
-            and project can receive a course completion certificate
-            from Siri Electronics.
-        </p>
-
-        <div class="certificate-box">
-
-            <h3>SIRI ELECTRONICS</h3>
-
-            <p>
-                Certificate of Completion
-            </p>
-
-            <p>
-                This certificate is awarded to
-            </p>
-
-            <h3>
-                <strong>STUDENT NAME</strong>
-            </h3>
-
-            <p>
-                for successfully completing the
-            </p>
-
-            <p>
-                <strong>CADSTAR / OrCAD PCB Design Course</strong>
-            </p>
-
-        </div>
-
-    </section>
-
+  const form = document.getElementById("enrollForm");
+  const name = document.getElementById("name"), college = document.getElementById("college"), branch = document.getElementById("branch"), course = document.getElementById("course");
+  function updatePreview(){
+    document.getElementById("previewName").textContent = name.value || "Student Name";
+    document.getElementById("previewCourse").textContent = course.value;
+    document.getElementById("previewCollege").textContent = college.value || "College Name";
+    document.getElementById("previewBranch").textContent = branch.value || "Branch";
+  }
+  [name,college,branch,course].forEach(el => el.addEventListener("input", updatePreview));
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    window.open(whatsappLink(course.value, name.value, college.value, branch.value), "_blank");
+  });
+</script>
 </body>
 </html>
-```
