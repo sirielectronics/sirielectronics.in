@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate Verification | Siri Electronics</title>
+<style>
+body{margin:0;background:#071525;color:#fff;font-family:Arial,sans-serif}.wrap{max-width:760px;margin:60px auto;padding:20px}.logo{display:block;width:260px;max-width:80%;margin:0 auto 35px;background:#fff;border-radius:10px}.box{background:#102238;border:1px solid #29445e;border-radius:18px;padding:30px;text-align:center}h1{color:#00d9ff}input{width:100%;padding:14px;border-radius:8px;border:1px solid #38536d;background:#091a2a;color:#fff;box-sizing:border-box;margin:15px 0}button{padding:13px 24px;border:0;border-radius:8px;background:#00d9ff;font-weight:800;cursor:pointer}.result{margin-top:25px;text-align:left;background:#091a2a;border-radius:12px;padding:20px}.valid{border-left:4px solid #25d366}.invalid{border-left:4px solid #ff5c5c}.back{display:inline-block;margin-top:25px;color:#00d9ff;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<img src="logo.svg" class="logo" alt="Siri Electronics">
+<div class="box">
+<h1>Certificate Verification</h1>
+<p>Enter the unique Siri Electronics certificate ID.</p>
+<input id="certId" placeholder="Example: SIRI-PCB-2026-0001">
+<button onclick="verify()">Verify Certificate</button>
+<div id="result"></div>
+<a class="back" href="certifications.html">← Back to Certification Courses</a>
+</div>
+</div>
+<script>
+const certificates = {
+ "SIRI-PCB-2026-0001": {
+   name:"Sunil Kumar",
+   course:"OrCAD PCB Design – Beginner to Advanced",
+   college:"Srinidhi College of Engineering",
+   branch:"ECE",
+   grade:"A+ (Excellent)",
+   issueDate:"31 August 2026",
+   status:"Valid"
+ },
+ "SIRI-PCB-2026-0002": {
+   name:"Student Example",
+   course:"CADSTAR PCB Design – Beginner to Advanced",
+   college:"Srinidhi College of Engineering",
+   branch:"ECE",
+   grade:"A (Very Good)",
+   issueDate:"31 August 2026",
+   status:"Valid"
+ }
+};
+function verify(){
+ const id=document.getElementById("certId").value.trim().toUpperCase();
+ const r=document.getElementById("result");
+ const c=certificates[id];
+ if(!c){r.className="result invalid";r.innerHTML="<strong>Certificate not found.</strong><p>Please check the certificate ID and try again.</p>";return;}
+ r.className="result valid";
+ r.innerHTML="<h3>✓ Certificate Valid</h3>"+
+ "<p><strong>Certificate ID:</strong> "+id+"</p>"+
+ "<p><strong>Student:</strong> "+c.name+"</p>"+
+ "<p><strong>Course:</strong> "+c.course+"</p>"+
+ "<p><strong>College:</strong> "+c.college+"</p>"+
+ "<p><strong>Branch:</strong> "+c.branch+"</p>"+
+ "<p><strong>Grade:</strong> "+c.grade+"</p>"+
+ "<p><strong>Issue Date:</strong> "+c.issueDate+"</p>"+
+ "<p><strong>Issued by:</strong> Siri Electronics</p>"+
+ "<small>This verification confirms a Siri Electronics course completion certificate. It does not indicate an official Cadence/OrCAD or Zuken/CADSTAR certification.</small>";
+}
+</script>
+</body>
+</html>
